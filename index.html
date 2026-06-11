@@ -125,29 +125,6 @@ h1,h2,h3{margin:0;}
 .rental-note{background:var(--card3);border:1px solid var(--border2);border-radius:10px;padding:16px 20px;margin-top:14px;}
 .rental-note p{font-family:var(--body);font-size:0.84em;color:#888;line-height:1.65;margin:0;}
 
-/* ── LOGO ZONE ── */
-.logo-zone{display:flex;gap:32px;align-items:center;justify-content:center;flex-wrap:wrap;padding:36px;background:var(--card2);border:1px solid var(--border);border-radius:14px;}
-.logo-box{display:flex;flex-direction:column;align-items:center;gap:10px;}
-.logo-box img{height:48px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.75;}
-.logo-box .logo-placeholder{height:48px;display:flex;align-items:center;justify-content:center;padding:0 24px;border:1px dashed var(--border3);border-radius:8px;min-width:140px;}
-.logo-box .logo-placeholder span{font-family:var(--cond);font-size:0.75em;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#444;}
-.logo-box .logo-name{font-family:var(--cond);font-size:0.7em;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#555;}
-.logo-divider{width:1px;height:48px;background:var(--border);}
-
-/* ── SCHEDULE WEEKS ── */
-.schedule-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.sched-card{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:24px;position:relative;overflow:hidden;}
-.sched-card .bar{position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);}
-.sched-card.active-week{border-color:rgba(239,68,68,0.5);}
-.sched-card.active-week .bar{background:linear-gradient(90deg,var(--red),#fb923c);}
-.sched-card .wk{font-family:var(--cond);font-size:0.82em;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
-.sched-card .wk-dates{font-family:var(--body);font-size:1.1em;font-weight:800;color:#fff;margin-bottom:4px;line-height:1.2;}
-.sched-card .wk-track{font-family:var(--body);font-size:0.9em;color:#999;}
-.sched-card .wk-status{display:inline-block;margin-top:12px;font-family:var(--cond);font-size:0.7em;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:6px;}
-.wk-status.live{background:rgba(239,68,68,0.15);color:var(--red);border:1px solid rgba(239,68,68,0.4);}
-.wk-status.upcoming{background:rgba(96,165,250,0.1);color:var(--blue);border:1px solid rgba(96,165,250,0.3);}
-.wk-status.done{background:#111;color:#555;border:1px solid var(--border2);}
-
 /* ── CTA SECTION ── */
 .cta-section{background:linear-gradient(135deg,#0d0000,#0a0a0a 50%,#0a0000);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 40px;text-align:center;}
 .cta-section .h2{font-size:3em;margin-bottom:16px;}
@@ -173,7 +150,6 @@ h1,h2,h3{margin:0;}
     .step-grid{grid-template-columns:1fr 1fr;}
     .details-grid{grid-template-columns:1fr;}
     .rental-grid{grid-template-columns:1fr 1fr;}
-    .schedule-grid{grid-template-columns:1fr;}
 }
 @media(max-width:600px){
     .section{padding:48px 18px;}
@@ -188,7 +164,6 @@ h1,h2,h3{margin:0;}
     .prize-grid{grid-template-columns:1fr;}
     .cta-section .h2{font-size:2em;}
     .discount-banner{flex-direction:column;text-align:center;gap:16px;}
-    .logo-divider{width:48px;height:1px;}
     .footer-links{flex-direction:column;}
     .footer-links .btn{width:100%;text-align:center;}
 }
@@ -215,7 +190,7 @@ h1,h2,h3{margin:0;}
   <div class="hero-glow"></div>
   <div class="hero-inner">
     <div>
-      <span class="badge">SIM1Racing × Burnout Events</span>
+      <img src="https://static1.squarespace.com/static/675f613ae652273e9723cfd3/t/6a2afecdfe6a136c3d3ca82b/1781202638137/color+wo+bg.png" alt="Burnout Events" style="height:44px;object-fit:contain;display:block;margin-bottom:14px;">
       <h1>WIN A FREE<br><span class="accent">TRACK DAY</span></h1>
       <p>Finish at the top of our sim-racing competition and win a real track day at Lime Rock Park, CT on June 19–20. Two winners, two prizes — first place takes a full two-day pass, second place scores a single-day ticket.</p>
       <div class="hero-cta">
@@ -231,41 +206,11 @@ h1,h2,h3{margin:0;}
 
     <!-- 4:5 event graphic -->
     <div class="event-graphic-wrap">
-      <!-- Replace the src below with your actual 4:5 event graphic URL -->
-      <!-- <img src="YOUR_EVENT_GRAPHIC_URL_HERE" alt="Burnout Events — Lime Rock Park June 19–20"> -->
-      <div class="event-graphic-placeholder">
-        <div class="ph-glow"></div>
-        <div class="ph-ico">🏁</div>
-        <div class="ph-t">Event Graphic</div>
-        <div class="ph-s">Replace with your 4:5 promo image for Lime Rock Park June 19–20</div>
-      </div>
+      <img src="https://static1.squarespace.com/static/675f613ae652273e9723cfd3/t/6a2affe90c49360e99fd2f53/1781202921898/Insta+Events+%2831%29.jpg" alt="Burnout Events — Lime Rock Park June 19–20">
       <span class="live-badge">COMPETITION LIVE</span>
     </div>
   </div>
 </header>
-
-<!-- ── LOGOS ── -->
-<section style="padding:40px 40px;background:var(--bg2);border-bottom:1px solid var(--border);">
-  <div class="wrap">
-    <div class="logo-zone">
-      <!-- Replace logo-placeholder divs with <img> tags once you have logo files -->
-      <div class="logo-box">
-        <div class="logo-placeholder"><span>SIM1Racing Logo</span></div>
-        <div class="logo-name">SIM1Racing</div>
-      </div>
-      <div class="logo-divider"></div>
-      <div class="logo-box">
-        <div class="logo-placeholder"><span>Burnout Events Logo</span></div>
-        <div class="logo-name">Burnout Events</div>
-      </div>
-      <div class="logo-divider"></div>
-      <div class="logo-box">
-        <div class="logo-placeholder"><span>Indian Summer Racing Logo</span></div>
-        <div class="logo-name">Indian Summer Racing</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ── HOW IT WORKS ── -->
 <section class="section" id="how" style="background:var(--bg2);">
@@ -273,60 +218,29 @@ h1,h2,h3{margin:0;}
     <div class="center" style="margin-bottom:44px;">
       <div class="eyebrow">THE FORMAT</div>
       <h2 class="h2">How It Works</h2>
-      <p class="lead" style="max-width:680px;margin:14px auto 0;">Three weeks of sim racing. Post the fastest lap on the SIM1Racing server each week. Top the standings when it's all over and you're heading to the real track — for free.</p>
+      <p class="lead" style="max-width:680px;margin:14px auto 0;">One track, three weeks to set your best lap. Jump on the SIM1Racing server any time the competition is open, post a clean time, and the top two when it closes win a real track day — for free.</p>
     </div>
     <div class="step-grid">
       <div class="step-card"><div class="bar"></div>
         <div class="num">01</div>
         <div class="step-t">Join the Competition</div>
-        <div class="step-d">Log on to the SIM1Racing sim-racing server and set a lap on the week's assigned circuit. Any clean lap counts — as many attempts as you like within the week.</div>
+        <div class="step-d">Log onto the SIM1Racing sim-racing server and set a lap on the assigned circuit. Any clean lap counts — as many attempts as you like across the full three-week window.</div>
       </div>
       <div class="step-card"><div class="bar"></div>
         <div class="num">02</div>
-        <div class="step-t">Three Weeks, Three Tracks</div>
-        <div class="step-d">A new track is set each week. Your fastest lap for the week is your score. Miss a week? Still worth competing — a strong result in weeks 2 or 3 can move you up the standings.</div>
+        <div class="step-t">Keep Improving</div>
+        <div class="step-d">The same track stays open for three weeks. Come back as many times as you want to chase a faster time — only your quickest clean lap counts toward the standings.</div>
       </div>
       <div class="step-card"><div class="bar"></div>
         <div class="num">03</div>
         <div class="step-t">Top Two Win</div>
-        <div class="step-d">When the final week closes, 1st place takes the two-day weekend pass ($900 value) and 2nd place wins a single-day ticket ($500 value) to Lime Rock Park June 19–20.</div>
+        <div class="step-d">When the window closes, 1st place takes the two-day weekend pass ($900 value) and 2nd place wins a single-day ticket ($500 value) to Lime Rock Park June 19–20.</div>
       </div>
     </div>
 
     <div class="note" style="margin-top:28px;">
       <div class="nt-t">📌 Important — Event Date</div>
       <p>The track day is <strong style="color:#fff;">June 19–20, 2026</strong> at Lime Rock Park, CT. Winners must be able to attend. The prize is a ticket — all other costs (travel, lodging, optional car rental) are the winner's responsibility. Prizes are non-transferable and have no cash value.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ── WEEKLY SCHEDULE ── -->
-<section class="section" id="schedule" style="background:var(--bg);">
-  <div class="wrap">
-    <div class="center" style="margin-bottom:40px;">
-      <div class="eyebrow">COMPETITION CALENDAR</div>
-      <h2 class="h2">Weekly Schedule</h2>
-      <p class="lead" style="max-width:640px;margin:14px auto 0;">Three weeks, three tracks. A new circuit opens every Monday and closes the following Sunday night.</p>
-    </div>
-    <div class="schedule-grid">
-      <div class="sched-card active-week"><div class="bar"></div>
-        <div class="wk">Week 1 — Now Live</div>
-        <div class="wk-dates">Opens June 2</div>
-        <div class="wk-track">Track TBA — check the SIM1Racing Discord</div>
-        <span class="wk-status live">🔴 Live</span>
-      </div>
-      <div class="sched-card"><div class="bar"></div>
-        <div class="wk">Week 2</div>
-        <div class="wk-dates">Opens June 9</div>
-        <div class="wk-track">Track TBA</div>
-        <span class="wk-status upcoming">Upcoming</span>
-      </div>
-      <div class="sched-card"><div class="bar"></div>
-        <div class="wk">Week 3 — Final</div>
-        <div class="wk-dates">Opens June 16</div>
-        <div class="wk-track">Track TBA · Winners announced June 17</div>
-        <span class="wk-status upcoming">Upcoming</span>
-      </div>
     </div>
   </div>
 </section>
