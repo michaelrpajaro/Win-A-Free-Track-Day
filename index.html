@@ -150,21 +150,69 @@ h1,h2,h3{margin:0;}
     .step-grid{grid-template-columns:1fr 1fr;}
     .details-grid{grid-template-columns:1fr;}
     .rental-grid{grid-template-columns:1fr 1fr;}
+    /* Show event graphic above text on tablets too */
+    .event-graphic-wrap{order:-1;}
+    .hero-inner>div:first-child{order:1;}
 }
 @media(max-width:600px){
+    /* ── Layout ── */
     .section{padding:48px 18px;}
-    .hero{padding:40px 18px 50px;}
+    .hero{padding:28px 18px 48px;}
     .nav-inner{padding:12px 18px;}
     .nav-links{display:none;}
-    .h2{font-size:2em;}
-    .hero h1{font-size:2.7em;}
-    .step-grid{grid-template-columns:1fr;}
-    .rental-grid{grid-template-columns:1fr;}
-    .hero-stats{grid-template-columns:repeat(3,1fr);}
-    .prize-grid{grid-template-columns:1fr;}
-    .cta-section .h2{font-size:2em;}
-    .discount-banner{flex-direction:column;text-align:center;gap:16px;}
-    .footer-links{flex-direction:column;}
+    /* Shorten the brand label so it fits one line */
+    .nav-brand{font-size:0.95em;letter-spacing:0.5px;}
+
+    /* ── Typography ── */
+    .h2{font-size:1.85em;}
+    .hero h1{font-size:2.3em;margin:12px 0 14px;}
+    .hero p{font-size:1em;margin-bottom:18px;}
+    .cta-section .h2{font-size:1.85em;}
+    .cta-section{padding:56px 18px;}
+
+    /* ── Hero graphic: show image first, then text ── */
+    .hero-inner{display:flex;flex-direction:column;gap:24px;}
+    .event-graphic-wrap{order:-1;border-radius:12px;}
+    /* Tighten the 4:5 image so it doesn't take the full screen height */
+    .event-graphic-wrap img{max-height:72vw;object-fit:cover;}
+
+    /* ── Hero stats: 3 pills but with smaller text so $1,400 fits ── */
+    .hero-stats{grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px;}
+    .hero-stat{padding:10px 6px;}
+    .hero-stat .v{font-size:1.25em;}
+    .hero-stat .l{font-size:0.65em;letter-spacing:0;}
+
+    /* ── Hero CTAs: stack full width ── */
+    .hero-cta{flex-direction:column;gap:10px;}
+    .hero-cta .btn{width:100%;text-align:center;padding:14px 18px;}
+
+    /* ── Step cards ── */
+    .step-grid{grid-template-columns:1fr;gap:10px;}
+    .step-card{padding:18px 16px;}
+    .step-card .num{font-size:1.6em;margin-bottom:8px;}
+
+    /* ── Prize cards ── */
+    .prize-grid{grid-template-columns:1fr;gap:12px;}
+    .prize-card{padding:22px 18px;}
+    .prize-card .prize-val{font-size:2.4em;}
+
+    /* ── Event details ── */
+    .detail-block{padding:18px 16px;}
+    .discount-banner{flex-direction:column;text-align:center;gap:14px;padding:20px 18px;}
+    .discount-banner .dc-code{font-size:2.2em;}
+    .discount-banner .dc-t{font-size:1.3em;}
+
+    /* ── Rentals ── */
+    .rental-grid{grid-template-columns:1fr;gap:10px;}
+    .rental-card{padding:14px 16px;}
+
+    /* ── CTA buttons ── */
+    .cta-btns{flex-direction:column;align-items:stretch;gap:10px;}
+    .cta-btns .btn{text-align:center;padding:14px 18px;}
+
+    /* ── Footer ── */
+    .footer{padding:36px 18px;}
+    .footer-links{flex-direction:column;gap:8px;}
     .footer-links .btn{width:100%;text-align:center;}
 }
 </style>
