@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prizes & Giveaways — SIM1Racing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+    --red:#EF4444;--red-dark:#991b1b;
+    --bg:#000;--bg2:#0a0a0a;--bg3:#0d0d0d;
+    --card:#111;--card2:#1a1a1a;
+    --border:#2a2a2a;--border2:#1a1a1a;
+    --gold:#fbbf24;--silver:#d1d5db;--bronze:#cd7f32;
+    --cond:'Barlow Condensed',sans-serif;
+    --body:'Barlow',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:#fff;font-family:var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+img{display:block;}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:500;background:rgba(0,0,0,0.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--border2);}
+.nav-inner{max-width:1200px;margin:0 auto;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.nav-brand{font-family:var(--cond);font-weight:900;font-size:1.1em;text-transform:uppercase;letter-spacing:1px;color:#fff;display:flex;align-items:center;gap:9px;}
+.nav-brand .dot{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red);}
+.nav-links{display:flex;gap:6px;flex-wrap:wrap;}
+.nav-links a{font-family:var(--cond);font-weight:800;font-size:0.78em;text-transform:uppercase;letter-spacing:1.5px;color:#888;text-decoration:none;padding:6px 12px;border-radius:6px;transition:color .15s,background .15s;}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,0.07);}
+
+/* ── SHARED ── */
+.eyebrow{font-family:var(--cond);font-size:0.72em;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
+.h1{font-family:var(--cond);font-size:5em;font-weight:900;text-transform:uppercase;line-height:0.93;}
+.h2{font-family:var(--cond);font-size:2.5em;font-weight:900;text-transform:uppercase;line-height:1;}
+.h3{font-family:var(--cond);font-size:1.5em;font-weight:900;text-transform:uppercase;line-height:1.1;}
+.lead{font-family:var(--body);font-size:1.05em;color:#aaa;line-height:1.7;}
+.center{text-align:center;}
+.section{padding:70px 40px;}
+.wrap{max-width:1200px;margin:0 auto;}
+.btn{display:inline-block;background:var(--red);color:#fff;padding:13px 32px;border-radius:8px;font-family:var(--cond);font-size:1em;font-weight:800;text-transform:uppercase;letter-spacing:1px;transition:filter .15s,transform .1s;}
+.btn:hover{filter:brightness(1.12);}
+.btn:active{transform:scale(.98);}
+.btn-ghost{background:transparent;border:2px solid #333;color:#ccc;}
+.btn-ghost:hover{border-color:#555;color:#fff;background:rgba(255,255,255,0.04);}
+
+/* ── HERO ── */
+.hero{padding:110px 40px 80px;background:var(--bg);position:relative;overflow:hidden;}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(239,68,68,0.14) 0%,transparent 65%);pointer-events:none;}
+.hero-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto;text-align:center;}
+.hero-inner .eyebrow{margin-bottom:16px;}
+.hero-inner .h1{margin-bottom:22px;color:#fff;}
+.hero-inner .h1 span{color:var(--red);}
+.hero-inner .lead{max-width:620px;margin:0 auto 36px;}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+/* ── STATS STRIP ── */
+.stats-strip{background:var(--bg2);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);padding:28px 40px;}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;text-align:center;}
+.stat-item .sv{font-family:var(--cond);font-size:2em;font-weight:900;color:var(--red);line-height:1;}
+.stat-item .sl{font-family:var(--body);font-size:0.78em;color:#666;text-transform:uppercase;letter-spacing:0.5px;margin-top:4px;}
+
+/* ── SECTION HEADER ── */
+.sec-header{text-align:center;margin-bottom:44px;}
+.sec-header .h2{margin-bottom:12px;}
+.sec-header .lead{max-width:600px;margin:0 auto;}
+
+/* ── PRIZE CARDS ── */
+.prizes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+
+.prize-card{
+    border-radius:16px;overflow:hidden;position:relative;
+    display:flex;flex-direction:column;
+    transition:transform .2s,box-shadow .2s;
+}
+.prize-card:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,0,0,0.5);}
+
+/* colour variants */
+.pc-red{background:linear-gradient(145deg,#1a0505,#0f0f0f 60%);border:1px solid rgba(239,68,68,0.4);}
+.pc-gold{background:linear-gradient(145deg,#1c1500,#0f0f0f 60%);border:1px solid rgba(251,191,36,0.4);}
+.pc-silver{background:linear-gradient(145deg,#0f0f15,#0f0f0f 60%);border:1px solid rgba(209,213,219,0.3);}
+.pc-blue{background:linear-gradient(145deg,#060e1a,#0f0f0f 60%);border:1px solid rgba(96,165,250,0.35);}
+.pc-green{background:linear-gradient(145deg,#041008,#0f0f0f 60%);border:1px solid rgba(34,197,94,0.35);}
+.pc-bronze{background:linear-gradient(145deg,#160c00,#0f0f0f 60%);border:1px solid rgba(205,127,50,0.35);}
+
+/* accent bar on top */
+.prize-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.pc-red::before{background:var(--red);}
+.pc-gold::before{background:linear-gradient(90deg,var(--gold),#f59e0b);}
+.pc-silver::before{background:linear-gradient(90deg,var(--silver),#9ca3af);}
+.pc-blue::before{background:linear-gradient(90deg,#60a5fa,#3b82f6);}
+.pc-green::before{background:linear-gradient(90deg,#22c55e,#16a34a);}
+.pc-bronze::before{background:linear-gradient(90deg,var(--bronze),#a16207);}
+
+.pc-icon-wrap{padding:28px 28px 0;position:relative;}
+.pc-icon{font-size:2.8em;line-height:1;position:relative;z-index:1;}
+.pc-body{padding:18px 28px 0;flex:1;}
+.pc-date-badge{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:var(--cond);font-size:0.64em;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
+    padding:4px 10px;border-radius:6px;margin-bottom:12px;
+}
+.badge-open{background:rgba(34,197,94,0.12);color:#4ade80;border:1px solid rgba(34,197,94,0.25);}
+.badge-deadline{background:rgba(239,68,68,0.12);color:#f87171;border:1px solid rgba(239,68,68,0.25);}
+.badge-ended{background:rgba(100,100,100,0.12);color:#777;border:1px solid rgba(100,100,100,0.2);}
+.badge-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.badge-open .badge-dot{background:#4ade80;box-shadow:0 0 6px #4ade80;animation:pulse 1.5s infinite;}
+.badge-deadline .badge-dot{background:#f87171;}
+.badge-ended .badge-dot{background:#555;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+.pc-title{font-family:var(--cond);font-size:1.55em;font-weight:900;text-transform:uppercase;color:#fff;line-height:1.05;margin-bottom:10px;}
+.pc-desc{font-family:var(--body);font-size:0.88em;color:#999;line-height:1.6;margin-bottom:18px;}
+
+.pc-date-row{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:20px;}
+.pc-date-item .pdi-l{font-family:var(--cond);font-size:0.62em;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#666;margin-bottom:2px;}
+.pc-date-item .pdi-v{font-family:var(--cond);font-size:0.95em;font-weight:800;color:#ddd;}
+
+.pc-value{font-family:var(--cond);font-size:1.8em;font-weight:900;line-height:1;margin-bottom:18px;}
+.pc-red .pc-value{color:var(--red);}
+.pc-gold .pc-value{color:var(--gold);}
+.pc-silver .pc-value{color:var(--silver);}
+.pc-blue .pc-value{color:#60a5fa;}
+.pc-green .pc-value{color:#22c55e;}
+.pc-bronze .pc-value{color:var(--bronze);}
+
+.pc-footer{padding:18px 28px 26px;border-top:1px solid rgba(255,255,255,0.06);}
+.pc-cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.pc-link{font-family:var(--cond);font-size:0.82em;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#666;border-bottom:1px solid #333;padding-bottom:1px;transition:color .15s,border-color .15s;}
+.pc-link:hover{color:#ccc;border-color:#888;}
+
+/* btn colour variants */
+.btn-red{background:var(--red);color:#fff;}
+.btn-gold{background:var(--gold);color:#000;}
+.btn-silver{background:var(--silver);color:#000;}
+.btn-blue{background:#60a5fa;color:#000;}
+.btn-green{background:#22c55e;color:#000;}
+.btn-bronze{background:var(--bronze);color:#fff;}
+.btn-sm{padding:9px 18px;font-size:0.82em;border-radius:7px;}
+
+/* ── FEATURED (wide) CARD ── */
+.prize-card-wide{
+    grid-column:1/-1;
+    border-radius:16px;overflow:hidden;position:relative;
+    display:grid;grid-template-columns:0.9fr 1.1fr;
+    transition:transform .2s,box-shadow .2s;
+}
+.prize-card-wide:hover{transform:translateY(-3px);box-shadow:0 28px 70px rgba(0,0,0,0.55);}
+.prize-card-wide::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;z-index:2;background:var(--red);}
+.pcw-image{position:relative;min-height:280px;background:var(--card) center/cover no-repeat;overflow:hidden;}
+.pcw-image-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.1),rgba(0,0,0,0.7));}
+.pcw-body{padding:36px 36px 30px;display:flex;flex-direction:column;justify-content:space-between;}
+.pcw-top .pc-date-badge{margin-bottom:14px;}
+.pcw-top .pc-title{font-size:2em;margin-bottom:12px;}
+.pcw-top .pc-desc{margin-bottom:22px;}
+.pcw-meta{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.pcw-meta-item .pdi-l{font-family:var(--cond);font-size:0.62em;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#666;margin-bottom:3px;}
+.pcw-meta-item .pdi-v{font-family:var(--cond);font-size:1.1em;font-weight:800;color:#ddd;}
+
+/* ── FILTER BAR ── */
+.filter-bar{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;}
+.filter-btn{font-family:var(--cond);font-size:0.78em;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:8px 18px;border-radius:20px;border:1px solid var(--border);background:transparent;color:#888;cursor:pointer;transition:all .15s;}
+.filter-btn:hover{color:#fff;border-color:#555;}
+.filter-btn.active{background:var(--red);color:#fff;border-color:var(--red);}
+
+/* ── HOW TO WIN ── */
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.how-card{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:26px 22px;position:relative;overflow:hidden;}
+.how-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);}
+.how-num{font-family:var(--cond);font-size:2.4em;font-weight:900;color:var(--red);line-height:1;margin-bottom:12px;}
+.how-t{font-family:var(--cond);font-size:1.05em;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:8px;}
+.how-d{font-family:var(--body);font-size:0.86em;color:#888;line-height:1.6;}
+
+/* ── CTA BANNER ── */
+.cta-banner{position:relative;overflow:hidden;padding:80px 40px;background:var(--bg2);border-top:1px solid var(--border2);}
+.cta-banner-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(239,68,68,0.14) 0%,transparent 65%);pointer-events:none;}
+.cta-banner-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;text-align:center;}
+.cta-banner-inner .h2{margin-bottom:16px;}
+.cta-banner-inner .lead{margin-bottom:32px;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+    .prizes-grid{grid-template-columns:1fr 1fr;}
+    .prize-card-wide{grid-template-columns:1fr;}
+    .pcw-image{min-height:200px;}
+    .how-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+    .nav-inner{padding:12px 20px;}
+    .hero{padding:70px 24px 60px;}
+    .section{padding:50px 24px;}
+    .stats-strip{padding:22px 24px;}
+    .stats-inner{grid-template-columns:repeat(2,1fr);}
+    .prizes-grid{grid-template-columns:1fr;}
+    .prize-card-wide{grid-template-columns:1fr;}
+    .how-grid{grid-template-columns:1fr;}
+    .h1{font-size:3em !important;}
+    .h2{font-size:1.9em !important;}
+    .pc-icon-wrap{padding:22px 22px 0;}
+    .pc-body{padding:16px 22px 0;}
+    .pc-footer{padding:16px 22px 22px;}
+    .pcw-body{padding:26px 24px 24px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+    <div class="nav-inner">
+        <div class="nav-brand"><span class="dot"></span>SIM1Racing</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="prizes.html" class="active">Prizes</a>
+            <a href="#leagues">Leagues</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+        <div class="eyebrow">Win Big at SIM1Racing</div>
+        <h1 class="h1">Prizes &amp; <span>Giveaways</span></h1>
+        <p class="lead">From track day packages to sim gear and championship prize pools — here's every way you can win at SIM1Racing right now.</p>
+        <div class="hero-cta">
+            <a href="#active-prizes" class="btn btn-red">View Active Prizes</a>
+            <a href="#how-to-win" class="btn btn-ghost">How It Works</a>
+        </div>
+    </div>
+</div>
+
+<!-- ── STATS STRIP ── -->
+<div class="stats-strip">
+    <div class="stats-inner">
+        <div class="stat-item">
+            <div class="sv">$3,500+</div>
+            <div class="sl">Total prize value this season</div>
+        </div>
+        <div class="stat-item">
+            <div class="sv">6</div>
+            <div class="sl">Active giveaways &amp; events</div>
+        </div>
+        <div class="stat-item">
+            <div class="sv">Free</div>
+            <div class="sl">Entry for Gold Members</div>
+        </div>
+        <div class="stat-item">
+            <div class="sv">Weekly</div>
+            <div class="sl">New prizes &amp; chances to win</div>
+        </div>
+    </div>
+</div>
+
+<!-- ── ACTIVE PRIZES ── -->
+<div class="section" id="active-prizes" style="background:var(--bg);">
+    <div class="wrap">
+
+        <div class="sec-header">
+            <div class="eyebrow">On Now</div>
+            <h2 class="h2">Active Prizes &amp; Giveaways</h2>
+            <p class="lead">Enter before deadlines close — or jump in on open-running events any time.</p>
+        </div>
+
+        <div class="filter-bar">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Track Day</button>
+            <button class="filter-btn">Sim Gear</button>
+            <button class="filter-btn">League Prizes</button>
+            <button class="filter-btn">Merch</button>
+        </div>
+
+        <div class="prizes-grid">
+
+            <!-- FEATURED WIDE: Win a Free Track Day -->
+            <div class="prize-card-wide pc-red" style="background:linear-gradient(145deg,#1a0505,#0f0f0f 60%);border:1px solid rgba(239,68,68,0.4);">
+                <div class="pcw-image" style="background-image:url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=900&q=80');">
+                    <div class="pcw-image-overlay"></div>
+                    <div style="position:absolute;top:18px;left:18px;z-index:2;background:var(--red);color:#fff;font-family:var(--cond);font-size:0.7em;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:10px;">&#11088; Featured Prize</div>
+                </div>
+                <div class="pcw-body" style="background:linear-gradient(145deg,#1a0505,#0f0f0f);">
+                    <div class="pcw-top">
+                        <div class="pc-date-badge badge-open"><span class="badge-dot"></span>Open Entry — Running Now</div>
+                        <h2 class="pc-title" style="font-size:2.1em;">Win a Free Track Day &#127937;</h2>
+                        <p class="pc-desc">Score a full track day package courtesy of SIM1Racing and Burnout Events — including entry, instructor time, and on-track coaching. One winner selected from all eligible entrants.</p>
+                        <div class="pcw-meta">
+                            <div class="pcw-meta-item">
+                                <div class="pdi-l">Entry Opens</div>
+                                <div class="pdi-v">June 1, 2026</div>
+                            </div>
+                            <div class="pcw-meta-item">
+                                <div class="pdi-l">Entry Closes</div>
+                                <div class="pdi-v" style="color:#f87171;">July 4, 2026</div>
+                            </div>
+                            <div class="pcw-meta-item">
+                                <div class="pdi-l">Draw Date</div>
+                                <div class="pdi-v">July 6, 2026</div>
+                            </div>
+                            <div class="pcw-meta-item">
+                                <div class="pdi-l">Prize Value</div>
+                                <div class="pdi-v" style="color:var(--red);">$800+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pc-cta">
+                        <a href="index.html" class="btn btn-red">Enter Now</a>
+                        <a href="index.html#details" class="pc-link">Full details &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 1: Lotus GTC League Championship -->
+            <div class="prize-card pc-gold">
+                <div class="pc-icon-wrap"><div class="pc-icon">&#129351;</div></div>
+                <div class="pc-body">
+                    <div class="pc-date-badge badge-deadline"><span class="badge-dot"></span>Register by July 4</div>
+                    <h3 class="pc-title">Lotus GTC Championship Pool</h3>
+                    <p class="pc-desc">Compete in the 4-week Lotus Evora GTC league and claim your share of a growing prize pool. The more drivers that enter, the bigger the purse.</p>
+                    <div class="pc-date-row">
+                        <div class="pc-date-item">
+                            <div class="pdi-l">Season Runs</div>
+                            <div class="pdi-v">Jul 6 &ndash; Jul 27</div>
+                        </div>
+                        <div class="pc-date-item">
+                            <div class="pdi-l">Sign-up Deadline</div>
+                            <div class="pdi-v" style="color:#f87171;">July 4, 2026</div>
+                        </div>
+                    </div>
+                    <div class="pc-value">$300 &ndash; $900</div>
+                </div>
+                <div class="pc-footer">
+                    <div class="pc-cta">
+                        <a href="#" class="btn btn-gold btn-sm">Sign Up</a>
+                        <a href="#" class="pc-link">League details &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Sim Wheel Giveaway -->
+            <div class="prize-card pc-blue">
+                <div class="pc-icon-wrap"><div class="pc-icon">&#127918;</div></div>
+                <div class="pc-body">
+                    <div class="pc-date-badge badge-open"><span class="badge-dot"></span>Open — No deadline</div>
+                    <h3 class="pc-title">Fanatec GT Pro Wheel Giveaway</h3>
+                    <p class="pc-desc">Follow &amp; tag us on Instagram for a chance to win a Fanatec ClubSport GT Pro wheel base. Winner drawn at the end of each month.</p>
+                    <div class="pc-date-row">
+                        <div class="pc-date-item">
+                            <div class="pdi-l">Monthly Draw</div>
+                            <div class="pdi-v">Last day of month</div>
+                        </div>
+                        <div class="pc-date-item">
+                            <div class="pdi-l">How to Enter</div>
+                            <div class="pdi-v">Follow + Tag</div>
+                        </div>
+                    </div>
+                    <div class="pc-value">$450 Wheel</div>
+                </div>
+                <div class="pc-footer">
+                    <div class="pc-cta">
+                        <a href="#" class="btn btn-blue btn-sm">Enter on Instagram</a>
+                        <a href="#" class="pc-link">Rules &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Audi TT Cup Championship -->
+            <div class="prize-card pc-silver">
+                <div class="pc-icon-wrap"><div class="pc-icon">&#127942;</div></div>
+                <div class="pc-body">
+                    <div class="pc-date-badge badge-open"><span class="badge-dot"></span>Season In Progress</div>
+                    <h3 class="pc-title">Audi TT Cup — Season Prize</h3>
+                    <p class="pc-desc">The inaugural SIM1 league is live. Top three drivers at Spa in the final round take home cash — standings update weekly.</p>
+                    <div class="pc-date-row">
+                        <div class="pc-date-item">
+                            <div class="pdi-l">Finale</div>
+                            <div class="pdi-v">June 29, 2026</div>
+                        </div>
+                        <div class="pc-date-item">
+                            <div class="pdi-l">After Week</div>
+                            <div class="pdi-v">2 of 5</div>
+                        </div>
+                    </div>
+                    <div class="pc-value">Up to $300</div>
+                </div>
+                <div class="pc-footer">
+                    <div class="pc-cta">
+                        <a href="index.html#current-season" class="btn btn-silver btn-sm">View Standings</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Fastest Lap Weekly Award -->
+            <div class="prize-card pc-green">
+                <div class="pc-icon-wrap"><div class="pc-icon">&#9889;</div></div>
+                <div class="pc-body">
+                    <div class="pc-date-badge badge-open"><span class="badge-dot"></span>Every Race Night</div>
+                    <h3 class="pc-title">Fastest Lap of the Night</h3>
+                    <p class="pc-desc">Set the fastest lap across both races in any league night and walk away with a SIM1Racing merch bundle — handed out on the spot.</p>
+                    <div class="pc-date-row">
+                        <div class="pc-date-item">
+                            <div class="pdi-l">When</div>
+                            <div class="pdi-v">Every Monday</div>
+                        </div>
+                        <div class="pc-date-item">
+                            <div class="pdi-l">Time</div>
+                            <div class="pdi-v">7:45 &ndash; 9:00 PM</div>
+                        </div>
+                    </div>
+                    <div class="pc-value">Merch Bundle</div>
+                </div>
+                <div class="pc-footer">
+                    <div class="pc-cta">
+                        <a href="#" class="btn btn-green btn-sm">Join a League</a>
+                        <a href="index.html#leagues" class="pc-link">League info &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Referral Giveaway -->
+            <div class="prize-card pc-bronze">
+                <div class="pc-icon-wrap"><div class="pc-icon">&#128227;</div></div>
+                <div class="pc-body">
+                    <div class="pc-date-badge badge-deadline"><span class="badge-dot"></span>Ends July 31</div>
+                    <h3 class="pc-title">Refer-a-Racer Prize Draw</h3>
+                    <p class="pc-desc">Refer a friend who signs up for any league entry. You both get an entry into the quarterly prize draw — more referrals, more entries.</p>
+                    <div class="pc-date-row">
+                        <div class="pc-date-item">
+                            <div class="pdi-l">Draw Date</div>
+                            <div class="pdi-v" style="color:#f87171;">August 1, 2026</div>
+                        </div>
+                        <div class="pc-date-item">
+                            <div class="pdi-l">Prize</div>
+                            <div class="pdi-v">SIM1 Gold Pass</div>
+                        </div>
+                    </div>
+                    <div class="pc-value">3-Month Gold Pass</div>
+                </div>
+                <div class="pc-footer">
+                    <div class="pc-cta">
+                        <a href="#" class="btn btn-bronze btn-sm">Get Your Link</a>
+                        <a href="#" class="pc-link">How it works &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: Social Photo Contest -->
+            <div class="prize-card pc-red">
+                <div class="pc-icon-wrap"><div class="pc-icon">&#128248;</div></div>
+                <div class="pc-body">
+                    <div class="pc-date-badge badge-deadline"><span class="badge-dot"></span>Submit by June 30</div>
+                    <h3 class="pc-title">Best Cockpit Shot Contest</h3>
+                    <p class="pc-desc">Share your sim setup or in-car action photo with <strong style="color:#fff;">#SIM1Racing</strong> on Instagram. Best photo wins a Playseat Trophy sim rig.</p>
+                    <div class="pc-date-row">
+                        <div class="pc-date-item">
+                            <div class="pdi-l">Submission Deadline</div>
+                            <div class="pdi-v" style="color:#f87171;">June 30, 2026</div>
+                        </div>
+                        <div class="pc-date-item">
+                            <div class="pdi-l">Winner Announced</div>
+                            <div class="pdi-v">July 5, 2026</div>
+                        </div>
+                    </div>
+                    <div class="pc-value">Sim Rig ($600)</div>
+                </div>
+                <div class="pc-footer">
+                    <div class="pc-cta">
+                        <a href="#" class="btn btn-red btn-sm">Enter on Instagram</a>
+                        <a href="#" class="pc-link">Contest rules &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ── HOW TO WIN ── -->
+<div class="section" id="how-to-win" style="background:var(--bg2);border-top:1px solid var(--border2);">
+    <div class="wrap">
+        <div class="sec-header">
+            <div class="eyebrow">Your Roadmap</div>
+            <h2 class="h2">How to Win</h2>
+            <p class="lead">Most prizes need nothing more than showing up. Here's the quick rundown.</p>
+        </div>
+        <div class="how-grid">
+            <div class="how-card">
+                <div class="how-num">01</div>
+                <div class="how-t">Pick a Prize</div>
+                <div class="how-d">Browse the cards above and choose a prize (or all of them). Note whether it has a sign-up deadline or is open-entry.</div>
+            </div>
+            <div class="how-card">
+                <div class="how-num">02</div>
+                <div class="how-t">Register or Enter</div>
+                <div class="how-d">Click the card's button to enter — some link to Acuity Scheduling, others to Instagram or a simple sign-up form.</div>
+            </div>
+            <div class="how-card">
+                <div class="how-num">03</div>
+                <div class="how-t">Race &amp; Compete</div>
+                <div class="how-d">For league prizes, show up on Monday nights and put in fast laps. Gold Members race free; non-members pay per season.</div>
+            </div>
+            <div class="how-card">
+                <div class="how-num">04</div>
+                <div class="how-t">Claim Your Win</div>
+                <div class="how-d">Winners are contacted by email within 48 hours of the draw or season finale. Prize payouts and shipping arranged directly.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── PAST WINNERS ── -->
+<div class="section" style="background:var(--bg);border-top:1px solid var(--border2);">
+    <div class="wrap">
+        <div class="sec-header">
+            <div class="eyebrow">Hall of Fame</div>
+            <h2 class="h2">Past Winners</h2>
+            <p class="lead">These drivers put in the laps and walked away with the prizes. You could be next.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+            <div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:26px 24px;display:flex;gap:18px;align-items:flex-start;">
+                <div style="font-size:2em;line-height:1;flex-shrink:0;">&#127937;</div>
+                <div>
+                    <div style="font-family:var(--cond);font-size:0.62em;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:6px;">Track Day &middot; May 2026</div>
+                    <div style="font-family:var(--cond);font-size:1.15em;font-weight:900;color:#fff;margin-bottom:4px;">Jason T.</div>
+                    <div style="font-family:var(--body);font-size:0.84em;color:#888;">Won a full Buttonwillow track day via the monthly giveaway draw.</div>
+                </div>
+            </div>
+            <div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:26px 24px;display:flex;gap:18px;align-items:flex-start;">
+                <div style="font-size:2em;line-height:1;flex-shrink:0;">&#129351;</div>
+                <div>
+                    <div style="font-family:var(--cond);font-size:0.62em;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">League 1st &middot; April 2026</div>
+                    <div style="font-family:var(--cond);font-size:1.15em;font-weight:900;color:#fff;margin-bottom:4px;">Sarah K.</div>
+                    <div style="font-family:var(--body);font-size:0.84em;color:#888;">Dominated the spring cup and claimed $600 from the prize pool.</div>
+                </div>
+            </div>
+            <div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:26px 24px;display:flex;gap:18px;align-items:flex-start;">
+                <div style="font-size:2em;line-height:1;flex-shrink:0;">&#127918;</div>
+                <div>
+                    <div style="font-family:var(--cond);font-size:0.62em;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#60a5fa;margin-bottom:6px;">Sim Wheel &middot; March 2026</div>
+                    <div style="font-family:var(--cond);font-size:1.15em;font-weight:900;color:#fff;margin-bottom:4px;">Marcus R.</div>
+                    <div style="font-family:var(--body);font-size:0.84em;color:#888;">Picked up a Fanatec wheel via the Instagram follow &amp; tag draw.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── CTA ── -->
+<div class="cta-banner">
+    <div class="cta-banner-glow"></div>
+    <div class="cta-banner-inner">
+        <div class="eyebrow">Don't Miss Out</div>
+        <h2 class="h2">Ready to Race for Prizes?</h2>
+        <p class="lead">Join a league, enter a giveaway, or become a Gold Member to unlock free entry into every event.</p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+            <a href="index.html" class="btn btn-red">Enter the Track Day Draw</a>
+            <a href="#active-prizes" class="btn btn-ghost">See All Prizes</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
